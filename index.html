@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Music Player</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="player" role="region" aria-label="Music player">
+    <section class="main">
+      <div class="now">
+        <div class="cover" id="cover">♪</div>
+        <div class="meta">
+          <div class="title" id="title">--</div>
+          <div class="artist" id="artist">--</div>
+        </div>
+      </div>
+
+      <div class="time-row">
+        <div class="progress">
+          <span class="small" id="current">0:00</span>
+          <input type="range" id="seek" min="0" value="0" step="0.1" aria-label="Seek" />
+          <span class="small" id="duration">0:00</span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" id="prev" title="Previous">⏮</button>
+        <button class="btn" id="rew" title="Rewind 10s">⏪</button>
+        <button class="play" id="play" title="Play/Pause">▶</button>
+        <button class="btn" id="fwd" title="Forward 10s">⏩</button>
+        <button class="btn" id="next" title="Next">⏭</button>
+      </div>
+
+      <div class="bottom-controls">
+        <div class="flex">
+          <label class="small">Volume</label>
+          <input type="range" id="volume" min="0" max="1" step="0.01" value="0.8" />
+        </div>
+        <div class="flex">
+          <label class="small">Autoplay</label>
+          <div id="autoplay" class="toggle"><div class="knob"></div></div>
+        </div>
+      </div>
+
+      <footer>Tip: Click a song in the playlist to play. Replace track URLs in <code>script.js</code>.</footer>
+    </section>
+
+    <aside class="playlist" aria-label="Playlist">
+      <div class="pl-header">
+        <strong>Playlist</strong>
+        <div class="small">Tracks: <span id="count">0</span></div>
+      </div>
+      <div class="pl-list" id="pl-list"></div>
+    </aside>
+  </div>
+
+  <audio id="audio" preload="metadata"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
